@@ -1,17 +1,17 @@
-package movies;
+package comp.fundacionjala.movies;
 
 public class Movie {
     
     public static final int REGULAR = 0;
     public static final int NEW_RELEASE = 1;
     public static final int CHILDRENS = 2;
-    private String _title;
-    private int _priceCode;
+    private String title;
+    private int priceCode;
 
     public Movie(String title, int priceCode) {
     	validatePriceCode(priceCode);
-    	_priceCode=priceCode;
-    	_title = title;
+    	this.priceCode =priceCode;
+    	this.title = title;
         
     }
     public void validatePriceCode(int priceCode){
@@ -21,18 +21,18 @@ public class Movie {
     	
     }
     public int getPriceCode() {
-        return _priceCode;
+        return priceCode;
     }
 
     public void setPriceCode(int arg) {
-        _priceCode = arg;
+        priceCode = arg;
     }
 
     public String getTitle() {
-        return _title;
+        return title;
     }
     public void setTitle(String title){
-    	_title=title;
+    	this.title =title;
     }
     
 }
