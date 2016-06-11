@@ -25,8 +25,8 @@ public class CustomerTest {
     }
     @Test
     public void moreThanTwoRentalInstancesCanBeAddedToCustomerShoppingCart(){
-        IMovie movie=new RegularMovie("example",0);
-        IMovie movie2=new ChildrenMovie("example2",1);
+        IMovie movie=new RegularMovie("example");
+        IMovie movie2=new ChildrenMovie("example2");
         Rental rental=new Rental(movie,7);
         Rental rental2=new Rental(movie2,4);
         Customer customer=new Customer("Juan");
@@ -36,7 +36,7 @@ public class CustomerTest {
     }
     @Test
     public void aDuplicateRentalInstanceCannotBeAddedToCustomerShoppingCart(){
-        IMovie movie=new RegularMovie("example",0);
+        IMovie movie=new RegularMovie("example");
         Rental rental=new Rental(movie,7);
         Customer customer=new Customer("Juan");
         customer.addRental(rental);
@@ -45,33 +45,10 @@ public class CustomerTest {
     }
 
     @Test
-    public void aCustomerInstanceCanCalculateRenterPointsWhenPriceCodeIsRelease(){
-        IMovie movie=new NewReleaseMovie("title",1);
-        Rental rental=new Rental(movie,10);
-        Customer customer=new Customer("Juan");
-        assertEquals(2,customer.calculateRenterFrequentPoints(0, rental));
-    }
-
-    @Test
-    public void aCustomerInstanceCanCalculateRenterPointsWhenCodePriceIsChildrens(){
-        IMovie movie=new ChildrenMovie("title",2);
-        Rental rental=new Rental(movie,10);
-        Customer customer=new Customer("Juan");
-        assertEquals(1,customer.calculateRenterFrequentPoints(0, rental));
-    }
-
-    @Test
-    public void aCustomerInstanceCanCalculateRenterPointsWhenCodePriceIsRegular(){
-        IMovie movie=new RegularMovie("title",0);
-        Rental rental=new Rental(movie,10);
-        Customer customer=new Customer("Juan");
-        assertEquals(1,customer.calculateRenterFrequentPoints(0, rental));
-    }
-    @Test
     public void aCustomerCanCalculateTheTotalCharge(){
-        IMovie movie1=new ChildrenMovie("Resident Evil I",0);
-        IMovie movie2=new RegularMovie("Resident Evil II",2);
-        IMovie movie3=new NewReleaseMovie("Resident Evil III",1);
+        IMovie movie1=new ChildrenMovie("Resident Evil I");
+        IMovie movie2=new RegularMovie("Resident Evil II");
+        IMovie movie3=new NewReleaseMovie("Resident Evil III");
         Rental rental=new Rental(movie1,2);
         Rental rental2=new Rental(movie2,2);
         Rental rental3=new Rental(movie3,2);

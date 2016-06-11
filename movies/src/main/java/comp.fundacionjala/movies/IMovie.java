@@ -2,7 +2,7 @@ package comp.fundacionjala.movies;
 
 
 public interface IMovie {
-	public double calculateRentalAmount(int daysRented);
+    double calculateRentalCharge(int daysRented);
 
 
 }
