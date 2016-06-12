@@ -7,7 +7,7 @@ class Customer {
     private static final String BREAK_LINE = "\n";
     private static final String TABULATION = "\t";
     private String name;
-    private Set<Rental> rentalSet = new HashSet<>();
+    private Set<Rental> rentalSet = new HashSet<Rental>();
     
     public Customer(String name) {
         this.name = name;
