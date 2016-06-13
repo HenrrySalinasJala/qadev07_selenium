@@ -1,1 +1,0 @@
-# qadev07_refactorzation
