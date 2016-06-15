@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parameterization Test Suite">
+    <test name="Chrome Test">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="appUrl" value="https://www.pivotaltracker.com"/>
+        <parameter name="username" value="es.henrry@gmail.com"/>
+        <parameter name="password" value="PivotalTracker2292"/>
+        <classes>
+            <class name="comp.fundacionjala.movies.HomePageTest" />
+        </classes>
+    </test>
+</suite>
