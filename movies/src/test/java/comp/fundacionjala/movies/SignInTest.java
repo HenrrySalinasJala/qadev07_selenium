@@ -22,6 +22,7 @@ public class SignInTest extends BaseTest {
         DashboardPage dashboard = signInPage.setTxtUsername(username)
                                           .setTxtPassword(password)
                                           .clickOnLoginBtn();
+        System.out.print(Driver.getDriver().getCurrentUrl()+"dasdasdasdad");
         assertTrue(dashboard.getBtnCreateProject().isDisplayed());
         signInPage.goTo();
     }
