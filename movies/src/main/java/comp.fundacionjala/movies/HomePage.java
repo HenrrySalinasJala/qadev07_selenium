@@ -17,9 +17,10 @@ public class HomePage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    public SigInPage clickOnSignInBtn() {
+
+    public SignInPage clickOnSignInBtn() {
         btnSignIn.click();
-        return new SigInPage(driver);
+        return new SignInPage(driver);
     }
     public SignUpPage clickOnSignUpBtn() {
         btnSignUp.click();

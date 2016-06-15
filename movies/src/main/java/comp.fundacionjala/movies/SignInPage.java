@@ -5,21 +5,22 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SigInPage extends BasePage {
+public class SignInPage extends BasePage {
 
     @FindBy(id = "credentials_username")
-    private WebElement username;
+    private WebElement txtUsername;
     @FindBy(id = "credentials_password")
-    private WebElement password;
+    private WebElement txtPassword;
     @FindBy(id = "signin_form")
     private WebElement btnSignIn;
     @FindBy(className = "forgot_password userflow")
     private WebElement lnkForgotPassword;
 
-    public SigInPage(WebDriver driver) {
+    public SignInPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
+
     public DashboardPage clickOnSignInBtn() {
         btnSignIn.click();
         return new DashboardPage(driver);
@@ -30,27 +31,32 @@ public class SigInPage extends BasePage {
         return new DashboardPage(driver);
     }
 
-    public WebElement getPassword() {
-        return password;
+    public WebElement getTxtPassword() {
+        return txtPassword;
     }
 
-    public void setPassword(WebElement password) {
-        this.password = password;
+    public SignInPage setTxtPassword(String password) {
+        this.txtPassword.clear();
+        this.txtPassword.sendKeys(password);
+        return this;
     }
 
     public void setBtnSignIn(WebElement btnSignIn) {
         this.btnSignIn = btnSignIn;
     }
+
     public WebElement getBtnSignIn() {
         return this.btnSignIn;
     }
 
-    public WebElement getUsername() {
-        return username;
+    public WebElement getTxtUsername() {
+        return txtUsername;
     }
 
-    public void setUsername(WebElement username) {
-        this.username = username;
+    public SignInPage setTxtUsername(String username) {
+        this.txtUsername.clear();
+        this.txtUsername.sendKeys(username);
+        return this;
     }
 
     public WebElement getLnkForgotPassword() {
@@ -60,4 +66,5 @@ public class SigInPage extends BasePage {
     public void setLnkForgotPassword(WebElement lnkForgotPassword) {
         this.lnkForgotPassword = lnkForgotPassword;
     }
+
 }
