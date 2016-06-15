@@ -1,13 +1,12 @@
 package comp.fundacionjala.movies;
 
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class SigInPage extends BasePage {
+
     @FindBy(id = "credentials_username")
     private WebElement username;
     @FindBy(id = "credentials_password")
@@ -17,11 +16,11 @@ public class SigInPage extends BasePage {
     @FindBy(className = "forgot_password userflow")
     private WebElement lnkForgotPassword;
 
-    public SigInPage(WebDriver driver){
+    public SigInPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
-    public DashboardPage clickOnSignInBtn(){
+    public DashboardPage clickOnSignInBtn() {
         btnSignIn.click();
         return new DashboardPage(driver);
     }

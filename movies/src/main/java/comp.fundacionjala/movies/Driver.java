@@ -8,8 +8,9 @@ public class Driver {
 
     static String driverPath = ".\\lib\\";
     private static WebDriver driver = null;
-    protected Driver(){}
-    public static WebDriver getDriver(){
+    protected Driver() {
+    }
+    public static WebDriver getDriver() {
         return driver;
     }
     public static void setDriver(String browser, String appUrl) {
@@ -24,12 +25,12 @@ public class Driver {
                 return;
         }
     }
-    public static void quitDriver(){
+    public static void quitDriver() {
         driver.quit();
     }
     private static WebDriver initChromeDriver(String appUrl) {
         System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
-        if(driver == null){
+        if (driver == null) {
             driver = new ChromeDriver();
         }
 
@@ -39,12 +40,11 @@ public class Driver {
     }
 
     private static WebDriver initFirefoxDriver(String appUrl) {
-        if(driver == null){
+        if (driver == null) {
             driver = new FirefoxDriver();
         }
         driver.manage().window().maximize();
         driver.get(appUrl);
         return driver;
     }
-
 }
