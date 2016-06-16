@@ -1,30 +1,28 @@
 package comp.fundacionjala.movies;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class HomePage extends BasePage {
+public class HomePage extends BasePage implements IPage {
+    
 
     @FindBy(className = "btn-login")
     private WebElement btnSignIn;
     @FindBy(className = "btn-register")
     private WebElement btnSignUp;
 
-    public HomePage(WebDriver driver) {
-        super(driver);
-        PageFactory.initElements(driver, this);
+    public HomePage() {
+        URL = "https://www.pivotaltracker.com";
     }
 
 
     public SignInPage clickOnSignInBtn() {
         btnSignIn.click();
-        return new SignInPage(driver);
+        return new SignInPage();
     }
     public SignUpPage clickOnSignUpBtn() {
         btnSignUp.click();
-        return new SignUpPage(driver);
+        return new SignUpPage();
     }
 
     public void setBtnSignIn(WebElement btnSignIn) {
@@ -40,4 +38,6 @@ public class HomePage extends BasePage {
     public WebElement getBtnSignUp() {
         return btnSignUp;
     }
+
+
 }

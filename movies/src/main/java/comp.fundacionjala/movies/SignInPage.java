@@ -1,34 +1,34 @@
 package comp.fundacionjala.movies;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class SignInPage extends BasePage {
+public class SignInPage extends BasePage implements IPage{
+
 
     @FindBy(id = "credentials_username")
     private WebElement txtUsername;
     @FindBy(id = "credentials_password")
     private WebElement txtPassword;
-    @FindBy(id = "signin_form")
+    @FindBy(className = "app_signup_submit_button_button")
     private WebElement btnSignIn;
     @FindBy(className = "forgot_password userflow")
     private WebElement lnkForgotPassword;
+    @FindBy(xpath="//div[contains(.,'Invalid username/password')]")
+    private WebElement lblLoginErrorMessage;
 
-    public SignInPage(WebDriver driver) {
-        super(driver);
-        PageFactory.initElements(driver, this);
+
+    public SignInPage() {
+        URL ="https://www.pivotaltracker.com/signin" ;
     }
-
     public DashboardPage clickOnSignInBtn() {
         btnSignIn.click();
-        return new DashboardPage(driver);
+        return new DashboardPage();
     }
 
     public DashboardPage clickOnLoginBtn() {
         btnSignIn.click();
-        return new DashboardPage(driver);
+        return new DashboardPage();
     }
 
     public WebElement getTxtPassword() {
@@ -67,4 +67,11 @@ public class SignInPage extends BasePage {
         this.lnkForgotPassword = lnkForgotPassword;
     }
 
+    public WebElement getLblLoginErrorMessage() {
+        return lblLoginErrorMessage;
+    }
+
+    public void setLblLoginErrorMessage(WebElement lblLoginErrorMessage) {
+        this.lblLoginErrorMessage = lblLoginErrorMessage;
+    }
 }

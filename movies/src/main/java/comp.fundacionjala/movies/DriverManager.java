@@ -1,18 +1,39 @@
 package comp.fundacionjala.movies;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Driver {
+public class DriverManager {
 
     static String driverPath = ".\\lib\\";
-    private static WebDriver driver = null;
-    protected Driver() {
+    private static DriverManager instance;
+    private WebDriver driver;
+
+    private DriverManager() {
+        initWebDriver();
     }
-    public static WebDriver getDriver() {
+
+    public static DriverManager getInstance() {
+        if (instance == null) {
+            instance = new DriverManager();
+        }
+        return instance;
+    }
+
+    private void initWebDriver() {
+        System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+    }
+
+    public WebDriver getDriver() {
         return driver;
     }
+
+
+    /*
     public static void setDriver(String browser, String appUrl) {
         switch (browser) {
             case "chrome":
@@ -25,9 +46,9 @@ public class Driver {
                 return;
         }
     }
-    public static void quitDriver() {
-        driver.quit();
-    }
+
+
+
     private static WebDriver initChromeDriver(String appUrl) {
         System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
         if (driver == null) {
@@ -46,5 +67,8 @@ public class Driver {
         driver.manage().window().maximize();
         driver.get(appUrl);
         return driver;
+    }*/
+    public  void quitDriver() {
+        driver.quit();
     }
 }
