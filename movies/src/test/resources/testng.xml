@@ -3,7 +3,7 @@
     <parameter name="browser" value="chrome"/>
     <parameter name="appUrl" value="https://www.pivotaltracker.com"/>
     <parameter name="username" value="es.henrry@gmail.com"/>
-    <parameter name="password" value=""/>
+    <parameter name="password" value="ssssss"/>
     <parameter name="SignInPageUrl" value="https://www.pivotaltracker.com/signin"/>
     <parameter name="HomePageUrl" value="https://www.pivotaltracker.com"/>
     <parameter name="DashboardPageUrl" value="https://www.pivotaltracker.com/dashboard"/>
@@ -12,7 +12,7 @@
 
         <classes>
             <class name="comp.fundacionjala.movies.HomeTest" />
-            <class name="comp.fundacionjala.movies.SignInTest" />
+
             <class name="comp.fundacionjala.movies.DashboardTest" />
         </classes>
     </test>

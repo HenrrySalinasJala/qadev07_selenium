@@ -13,11 +13,14 @@ public class DashboardTest extends BaseTest{
     @BeforeTest
     @Parameters({"DashboardPageUrl","username", "password"})
     public void beforeTestSetUp(String urlPage,String username,String password) {
+        System.out.print("cashboard test x");
         dashboardPage = new DashboardPage();
         dashboardPage.logIn(username,password);
+        dashboardPage.goToPage();
     }
     @Test
     public void createNewProject() {
+        System.out.print("cashboard test x");
         String projectName="project test";
         String projectAccountName="name test";
         ProjectPage projectPage=dashboardPage.clickOnBtnCreateProject()
@@ -28,10 +31,11 @@ public class DashboardTest extends BaseTest{
     }
     @Test
     public void deleteProject() {
-
+        System.out.print("cashboard test x");
     }
     @AfterTest
     public void tearDown(){
+        System.out.print("cashboard test x");
         dashboardPage.logOut();
     }
 

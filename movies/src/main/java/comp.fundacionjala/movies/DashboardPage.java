@@ -4,8 +4,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class DashboardPage extends  BasePage{
-
-    private static final String URL = "https://www.pivotaltracker.com/dashboard";
     @FindBy(id = "create_new_project_button")
     private WebElement btnCreateProject;
 
@@ -33,11 +31,9 @@ public class DashboardPage extends  BasePage{
     private WebElement btnLogout;
 
     public DashboardPage() {
-        goToPage();
+        super("https://www.pivotaltracker.com/dashboard");
     }
-    public void goToPage() {
-        driver.get(URL);
-    }
+
 
     public DashboardPage clickOnBtnCreateProject(){
         btnCreateProject.click();
@@ -103,8 +99,8 @@ public class DashboardPage extends  BasePage{
         return this;
     }
 
-    public DashboardPage clickOnBtnLogout() {
+    public HomePage clickOnBtnLogout() {
         btnLogout.click();
-        return this;
+        return new HomePage();
     }
 }

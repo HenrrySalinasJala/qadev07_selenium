@@ -12,7 +12,7 @@ public class HomePage extends BasePage implements IPage {
     private WebElement btnSignUp;
 
     public HomePage() {
-        URL = "https://www.pivotaltracker.com";
+        super("https://www.pivotaltracker.com");
     }
 
 

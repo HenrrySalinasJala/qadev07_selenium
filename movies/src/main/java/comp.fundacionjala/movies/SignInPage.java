@@ -19,7 +19,8 @@ public class SignInPage extends BasePage implements IPage{
 
 
     public SignInPage() {
-        URL ="https://www.pivotaltracker.com/signin" ;
+        super("https://www.pivotaltracker.com/signin");
+        goToPage();
     }
     public DashboardPage clickOnSignInBtn() {
         btnSignIn.click();

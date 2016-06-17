@@ -24,7 +24,7 @@ public class SignInTest extends BaseTest {
                                           .setTxtPassword(password)
                                           .clickOnLoginBtn();
         assertTrue(dashboard.getBtnCreateWorkspace().isDisplayed());
-        signInPage.getDriver().navigate().back();
+        signInPage.goToPage();
     }
     @Test
     public void errorMessageShouldBeDisplayedWenTheCredentialsIsWronng(){
