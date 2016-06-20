@@ -1,9 +1,12 @@
-package comp.fundacionjala.movies;
+package comp.fundacionjala.pivotalPractice;
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SignInPage extends BasePage implements IPage{
+public class SignInPage extends BasePage {
 
 
     @FindBy(id = "credentials_username")
@@ -18,10 +21,6 @@ public class SignInPage extends BasePage implements IPage{
     private WebElement lblLoginErrorMessage;
 
 
-    public SignInPage() {
-        super("https://www.pivotaltracker.com/signin");
-        goToPage();
-    }
     public DashboardPage clickOnSignInBtn() {
         btnSignIn.click();
         return new DashboardPage();
@@ -50,11 +49,21 @@ public class SignInPage extends BasePage implements IPage{
         return this.btnSignIn;
     }
 
-    public WebElement getTxtUsername() {
-        return txtUsername;
+    public String getTxtUsername() {
+        String username="";
+        try {
+            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+            txtUsername.getText();
+        }catch (NoSuchElementException e){
+
+        }finally {
+            driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        }
+        return username;
     }
 
     public SignInPage setTxtUsername(String username) {
+
         this.txtUsername.clear();
         this.txtUsername.sendKeys(username);
         return this;
@@ -74,5 +83,17 @@ public class SignInPage extends BasePage implements IPage{
 
     public void setLblLoginErrorMessage(WebElement lblLoginErrorMessage) {
         this.lblLoginErrorMessage = lblLoginErrorMessage;
+    }
+    public static DashboardPage loginAs(String username, String password){
+        IndexPage indexPage=new IndexPage();
+        DashboardPage dashboardPage=new DashboardPage();
+        if (!dashboardPage.getUserNameText().equals(username)){
+
+            return  indexPage.clickOnSignInBtn()
+                    .setTxtUsername(username)
+                    .setTxtPassword(password)
+                    .clickOnLoginBtn();
+        }
+        return dashboardPage;
     }
 }

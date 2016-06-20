@@ -1,9 +1,9 @@
-package comp.fundacionjala.movies;
+package comp.fundacionjala.pivotalPractice;
 
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-import static org.testng.AssertJUnit.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class DriverManagerTest {
 

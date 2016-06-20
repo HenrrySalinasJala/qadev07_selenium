@@ -1,9 +1,13 @@
-package comp.fundacionjala.movies;
+package comp.fundacionjala.pivotalPractice;
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class DashboardPage extends  BasePage{
+public class DashboardPage extends BasePage {
+
     @FindBy(id = "create_new_project_button")
     private WebElement btnCreateProject;
 
@@ -24,26 +28,25 @@ public class DashboardPage extends  BasePage{
 
     @FindBy(xpath = "//*[@id=\"modal_area\"]/div/div/div[2]/div/form/div/footer/button[2]")
     private WebElement btnSubmitCreateProject;
-
+    @FindBy(id = "notice")
+    private WebElement msgDelete;
     @FindBy(className = "tc_profile_dropdown")
     private WebElement cmbProfile;
     @FindBy(xpath = "//*[@id=\"shared_header\"]/div/div/header/ul/li[3]/div/div/div/ul/li[4]/form/button")
     private WebElement btnLogout;
+    @FindBy(className = "tc_dropdown_name")
+    private WebElement lblUserName;
 
-    public DashboardPage() {
-        super("https://www.pivotaltracker.com/dashboard");
-    }
-
-
-    public DashboardPage clickOnBtnCreateProject(){
+    public DashboardPage clickOnBtnCreateProject() {
         btnCreateProject.click();
         return this;
     }
-    public ProjectPage clickOnBtnSubmitCreateProject(){
+
+    public ProjectPage clickOnBtnSubmitCreateProject() {
         btnSubmitCreateProject.click();
         return new ProjectPage();
-
     }
+
     public WebElement getBtnCreateProject() {
         return btnCreateProject;
     }
@@ -59,7 +62,6 @@ public class DashboardPage extends  BasePage{
     public void setBtnCreateWorkspace(WebElement btnCreateWorkspace) {
         this.btnCreateWorkspace = btnCreateWorkspace;
     }
-
 
     public WebElement getTxtProjectName() {
         return txtProjectName;
@@ -94,13 +96,31 @@ public class DashboardPage extends  BasePage{
     public WebElement getCmbProfile() {
         return cmbProfile;
     }
+
     public DashboardPage clickOnCmbProfile() {
         cmbProfile.click();
         return this;
     }
 
-    public HomePage clickOnBtnLogout() {
+    public IndexPage clickOnBtnLogout() {
         btnLogout.click();
-        return new HomePage();
+        return new IndexPage();
+    }
+
+    public String getUserNameText() {
+        String userName = "";
+        try {
+            driver.manage().timeouts().implicitlyWait(DriverManager.IMPLICIT_FAIL_WAIT_TIME, TimeUnit.SECONDS);
+            userName = lblUserName.getText();
+        } catch (NoSuchElementException e) {
+
+        } finally {
+            driver.manage().timeouts().implicitlyWait(DriverManager.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
+        }
+        return userName;
+    }
+
+    public WebElement getMsgDelete() {
+        return msgDelete;
     }
 }

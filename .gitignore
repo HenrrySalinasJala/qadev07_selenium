@@ -95,3 +95,7 @@ crashlytics-build.properties
 fabric.properties
 /target/
 target/
+pivotalPractice/lib/
+pivotalPractice/pivotalPractice.iml
+pivotalPractice/pom.xml
+
