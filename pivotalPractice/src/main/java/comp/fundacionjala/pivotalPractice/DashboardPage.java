@@ -1,10 +1,10 @@
 package comp.fundacionjala.pivotalPractice;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.concurrent.TimeUnit;
 
 public class DashboardPage extends BasePage {
 
@@ -28,12 +28,16 @@ public class DashboardPage extends BasePage {
 
     @FindBy(xpath = "//*[@id=\"modal_area\"]/div/div/div[2]/div/form/div/footer/button[2]")
     private WebElement btnSubmitCreateProject;
+
     @FindBy(id = "notice")
     private WebElement msgDelete;
+
     @FindBy(className = "tc_profile_dropdown")
     private WebElement cmbProfile;
+
     @FindBy(xpath = "//*[@id=\"shared_header\"]/div/div/header/ul/li[3]/div/div/div/ul/li[4]/form/button")
     private WebElement btnLogout;
+
     @FindBy(className = "tc_dropdown_name")
     private WebElement lblUserName;
 

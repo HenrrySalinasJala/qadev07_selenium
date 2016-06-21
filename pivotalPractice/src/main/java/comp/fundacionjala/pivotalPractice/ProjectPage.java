@@ -18,8 +18,5 @@ public class ProjectPage extends BasePage {
     public ProjectSettingsPage clickOnTabSettings() {
         tabSettings.click();
         return new ProjectSettingsPage();
-
     }
-
-
 }
