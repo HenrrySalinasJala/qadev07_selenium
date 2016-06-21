@@ -18,8 +18,10 @@ public class DeleteProjectTest {
     private String projectName = "project to delete";
 
     @Before
-    public void beforeTestSetUp() {
-        SignInPage.loginAs("henrrys", "PivotalTracker2292");
+    public void setUp() {
+        String username = "henrrys";
+        String password = "PivotalTracker2292";
+        SignInPage.loginAs(username, password);
         dashboardPage = new DashboardPage();
         String projectAccountName = "name test";
 

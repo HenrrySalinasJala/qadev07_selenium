@@ -18,6 +18,9 @@ public class ProjectSettingsPage extends BasePage {
     @FindBy(id = "project_name")
     private WebElement txtProjectName;
 
+    @FindBy(className = "save_bar__submit")
+    private WebElement btnSave;
+
     public WebElement getBtnCancel() {
         return btnCancel;
     }
@@ -33,8 +36,17 @@ public class ProjectSettingsPage extends BasePage {
         return new DashboardPage();
     }
 
-    public void setTxtProjectName(String projectName) {
+    public ProjectSettingsPage setTxtProjectName(String projectName) {
         txtProjectName.clear();
         txtProjectName.sendKeys(projectName);
+        return this;
+    }
+
+    public ProjectSettingsPage clickOnBtnSave() {
+        btnSave.click();
+        return this;
+    }
+    public String getTxtProjectName(){
+        return txtProjectName.getAttribute("value");
     }
 }

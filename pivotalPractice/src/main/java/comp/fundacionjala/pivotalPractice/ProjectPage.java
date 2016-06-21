@@ -2,13 +2,14 @@ package comp.fundacionjala.pivotalPractice;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ProjectPage extends BasePage {
 
     @FindBy(className = "raw_context_name")
     private WebElement lblProjectName;
 
-    @FindBy(xpath = "//*[contains(@class,\"page_header_container\")]/descendant::span[text()=\"settings\"]")
+    @FindBy(xpath = "//span[contains(.,'settings')]")
     private WebElement tabSettings;
 
     public WebElement getLblProjectName() {
@@ -16,6 +17,7 @@ public class ProjectPage extends BasePage {
     }
 
     public ProjectSettingsPage clickOnTabSettings() {
+        wait.until(ExpectedConditions.visibilityOf(tabSettings));
         tabSettings.click();
         return new ProjectSettingsPage();
     }

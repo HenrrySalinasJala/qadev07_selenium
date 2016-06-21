@@ -20,7 +20,9 @@ public class CreateProjectTest {
 
     @Before
     public void beforeTestSetUp() {
-        SignInPage.loginAs("henrrys", "PivotalTracker2292");
+        String username = "henrrys";
+        String password = "PivotalTracker2292";
+        SignInPage.loginAs(username, password);
         dashboardPage = new DashboardPage();
     }
 
