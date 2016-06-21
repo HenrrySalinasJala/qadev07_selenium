@@ -2,7 +2,8 @@ package comp.fundacionjala.pivotalPractice;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class ProjectPage extends BasePage {
 
@@ -17,7 +18,7 @@ public class ProjectPage extends BasePage {
     }
 
     public ProjectSettingsPage clickOnTabSettings() {
-        wait.until(ExpectedConditions.visibilityOf(tabSettings));
+        wait.until(visibilityOf(tabSettings));
         tabSettings.click();
         return new ProjectSettingsPage();
     }
